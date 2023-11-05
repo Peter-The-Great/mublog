@@ -23,6 +23,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "svelte-i18n": "^4.0.0"
+    "svelte-i18n": "^4.0.0",
+    "svelte-navigator": "^3.2.2"
   }
 }
