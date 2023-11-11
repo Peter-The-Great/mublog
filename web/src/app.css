@@ -12,4 +12,8 @@
   .detail {
     @apply text-gray-600 dark:text-gray-400;
   }
+
+  .link-emphasis {
+    @apply underline underline-offset-8 decoration-dotted;
+  }
 }

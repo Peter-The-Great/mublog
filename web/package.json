@@ -23,6 +23,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "dayjs": "^1.11.10",
     "svelte-i18n": "^4.0.0",
     "svelte-navigator": "^3.2.2"
   }

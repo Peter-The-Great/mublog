@@ -2,5 +2,9 @@
   "nav": {
     "newest": "Newest post",
     "timeline": "Timeline"
+  },
+  "post": {
+    "view_more": "View more",
+    "by": "by"
   }
 }
