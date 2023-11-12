@@ -10,4 +10,4 @@ export type Link = {
   icon: string;
 };
 
-export * from "../../../thoughts.config";
+export * from "../../../mublog.config";

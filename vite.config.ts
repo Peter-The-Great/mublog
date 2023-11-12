@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [sveltekit()],
   server: {
     fs: {
-      allow: ["thoughts.config.ts", "posts"],
+      allow: ["mublog.config.ts", "posts"],
     },
   },
 });
