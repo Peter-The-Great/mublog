@@ -5,27 +5,27 @@
   import type { Post } from "./modules/post";
   import { defaultAuthor } from "./modules/config";
 
-  export let item: Post;
+  export let post: Post;
 
   const authors = [defaultAuthor];
 </script>
 
 <article>
   <div class="mb-5 max-w-xl">
-    <h1 class="text-3xl font-semibold">{item.title}</h1>
-    {#if item.subtitle}
-      <h2 class="text-xl detail">{item.subtitle}</h2>
+    <h1 class="text-3xl font-semibold">{post.title}</h1>
+    {#if post.subtitle}
+      <h2 class="text-xl detail">{post.subtitle}</h2>
     {/if}
     <h3 class="mt-2">
       <span>{$_("post.authored_by")}</span>
       {#each authors as author}
         <a href={author.url} class="link-emphasis">{author.name}</a>
       {/each}
-      <span>{dayjs(item.published).fromNow()}</span>
+      <span>{dayjs(post.published).fromNow()}</span>
     </h3>
   </div>
   <div class="font-light max-w-3xl" id="content">
-    {@html item.content}
+    {@html post.content}
   </div>
 </article>
 <div class="mt-8">

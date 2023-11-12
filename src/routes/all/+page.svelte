@@ -1,12 +1,13 @@
 <script lang="ts">
   import PostPreview from "$lib/PostPreview.svelte";
-  import { ExampleItem } from "$lib/modules/post";
+  import type { LayoutData } from "../$types";
 
-  const posts = [ExampleItem];
+  export let data: LayoutData;
+  export const { postSummaries: summaries } = data;
 </script>
 
 <ul class="flex flex-col gap-4">
-  {#each posts as item}
-    <li><a href="/thought/{item.slug}"><PostPreview post={item} /></a></li>
+  {#each summaries as summary}
+    <li><a href="/thought/{summary.slug}"><PostPreview {summary} /></a></li>
   {/each}
 </ul>

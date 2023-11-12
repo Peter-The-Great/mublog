@@ -12,8 +12,12 @@ import "dayjs/locale/nl";
 export function initI18n() {
   const locale = getLocaleFromNavigator() ?? "en";
 
-  addMessages("en", en, display.en);
-  addMessages("nl", nl, display.nl);
+  addMessages("en", en);
+  addMessages("nl", nl);
+
+  for (const loc in display) {
+    addMessages(loc, display[loc]);
+  }
 
   init({ fallbackLocale: "en", initialLocale: locale });
 

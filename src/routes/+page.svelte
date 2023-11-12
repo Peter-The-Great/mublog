@@ -1,6 +1,9 @@
 <script lang="ts">
   import Post from "$lib/Post.svelte";
-  import { ExampleItem } from "$lib/modules/post";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
+  export const { post } = data;
 </script>
 
-<Post item={ExampleItem} />
+<Post {post} />

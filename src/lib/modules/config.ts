@@ -1,7 +1,7 @@
 export type DisplayMessages = { post: { authored_by: string } };
 
 export type Display = {
-  [key in "en" | "nl"]: DisplayMessages;
+  [key: string]: DisplayMessages;
 };
 
 export type Link = {
