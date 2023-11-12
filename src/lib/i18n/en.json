@@ -7,5 +7,8 @@
   "post": {
     "view_more": "View more"
   },
-  "no_content": "No content yet"
+  "placeholder": {
+    "no_content": "No content yet",
+    "not_found": "Page not found"
+  }
 }

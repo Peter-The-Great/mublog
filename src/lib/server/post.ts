@@ -1,10 +1,11 @@
 import type { PostMeta, Post, PostSummary } from "$lib/modules/post";
 import { marked } from "marked";
 import frontMatter from "front-matter";
-import { readFile } from "fs/promises";
+import { readFile, stat } from "fs/promises";
 import { glob } from "glob";
 import { join } from "path";
 import dayjs from "dayjs";
+import { existsSync } from "fs";
 
 export const ExampleItem: Post = {
   slug: "example",
@@ -36,8 +37,13 @@ export async function getSummaries(): Promise<PostSummary[]> {
   ).sort((a, b) => b.published.getTime() - a.published.getTime());
 }
 
-export async function getPost(slug: string): Promise<Post> {
-  const entry = await readFile(join("posts", slug + ".md"), "utf-8");
+export async function getPost(slug: string): Promise<Post | undefined> {
+  const path = join("posts", slug + ".md");
+  if (!existsSync(path)) {
+    return undefined;
+  }
+
+  const entry = await readFile(path, "utf-8");
   const { attributes: meta, body: content } = frontMatter<PostMeta>(entry);
 
   return {

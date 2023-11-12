@@ -7,5 +7,8 @@
   "post": {
     "view_more": "Meer bekijken"
   },
-  "no_content": "Nog geen content beschikbaar"
+  "placeholder": {
+    "no_content": "Nog geen content beschikbaar",
+    "not_found": "Pagina niet gevonden"
+  }
 }
