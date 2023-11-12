@@ -4,6 +4,7 @@
   import dayjs from "dayjs";
   import type { Post } from "./modules/post";
   import { defaultAuthor } from "./modules/config";
+  import UserContent from "./UserContent.svelte";
 
   export let post: Post;
 
@@ -24,8 +25,8 @@
       <span>{dayjs(post.published).fromNow()}</span>
     </h3>
   </div>
-  <div class="font-light max-w-3xl" id="content">
-    {@html post.content}
+  <div class="font-light max-w-3xl">
+    <UserContent content={post.content} />
   </div>
 </article>
 <div class="mt-8">
@@ -34,9 +35,3 @@
     <Icon class="inline" icon="lucide:arrow-right" width="24" />
   </a>
 </div>
-
-<style scoped lang="postcss">
-  #content :global(img) {
-    @apply rounded-md my-5;
-  }
-</style>
