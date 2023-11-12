@@ -1,4 +1,10 @@
-import type { Post, PostSummary } from "$lib/modules/post";
+import type { PostMeta, Post, PostSummary } from "$lib/modules/post";
+import { marked } from "marked";
+import frontMatter from "front-matter";
+import { readFile } from "fs/promises";
+import { glob } from "glob";
+import { join } from "path";
+import dayjs from "dayjs";
 
 export const ExampleItem: Post = {
   slug: "example",
@@ -11,19 +17,43 @@ export const ExampleItem: Post = {
 };
 
 export async function getSummaries(): Promise<PostSummary[]> {
-  return [
-    {
-      title: ExampleItem.title,
-      subtitle: ExampleItem.subtitle,
-      slug: ExampleItem.slug,
-    },
-  ];
+  const files = await glob("posts/**/*.md");
+
+  return (
+    await Promise.all(
+      files.map(async (item) => {
+        const entry = await readFile(item, "utf-8");
+        const { attributes: meta } = frontMatter<PostMeta>(entry);
+
+        return {
+          title: meta.title,
+          subtitle: meta.subtitle,
+          published: dayjs(meta.published, "YYYY-MM-DD").toDate(),
+          slug: item.replace(/^posts\/(.*)\.md$/, "$1"),
+        };
+      })
+    )
+  ).sort((a, b) => b.published.getTime() - a.published.getTime());
 }
 
-export async function getPost(_slug: string): Promise<Post> {
-  return ExampleItem; // TODO
+export async function getPost(slug: string): Promise<Post> {
+  const entry = await readFile(join("posts", slug + ".md"), "utf-8");
+  const { attributes: meta, body: content } = frontMatter<PostMeta>(entry);
+
+  return {
+    slug,
+    content: marked(content),
+    published: meta.published,
+    title: meta.title,
+    subtitle: meta.subtitle,
+  };
 }
 
-export async function getLatestPost(): Promise<Post> {
-  return ExampleItem; // TODO
+export async function getLatestPost(): Promise<Post | undefined> {
+  const summaries = await getSummaries();
+  if (!summaries.length) {
+    return undefined;
+  }
+
+  return await getPost(summaries[0].slug);
 }

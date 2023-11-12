@@ -11,4 +11,6 @@ export type Post = {
   content: string;
 };
 
-export type PostSummary = Pick<Post, "slug" | "title" | "subtitle">;
+export type PostSummary = Omit<Post, "content">;
+
+export type PostMeta = Omit<PostSummary, "slug">;
