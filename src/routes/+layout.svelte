@@ -13,9 +13,14 @@
   >
 </svelte:head>
 
-<main class="m-10">
-  <Navbar />
-  <div class="mt-8">
+<main class="m-8 md:m-10">
+  <header class="mb-6">
+    <a class="detail absolute -top-10 focus:top-0" tabindex={0} href="#main"
+      >{$_("a11y.skip_link")}</a
+    >
+    <Navbar />
+  </header>
+  <div class="md:mt-8" id="main">
     <slot />
   </div>
 </main>

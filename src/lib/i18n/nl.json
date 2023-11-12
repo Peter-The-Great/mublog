@@ -10,5 +10,8 @@
   "placeholder": {
     "no_content": "Nog geen content beschikbaar",
     "not_found": "Pagina niet gevonden"
+  },
+  "a11y": {
+    "skip_link": "Navigeer naar hoofdinhoud"
   }
 }

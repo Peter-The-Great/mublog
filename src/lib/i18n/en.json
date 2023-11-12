@@ -10,5 +10,8 @@
   "placeholder": {
     "no_content": "No content yet",
     "not_found": "Page not found"
+  },
+  "a11y": {
+    "skip_link": "Skip to main content"
   }
 }
