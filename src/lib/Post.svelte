@@ -1,12 +1,13 @@
 <script lang="ts">
   import { _ } from "svelte-i18n";
-  import { DefaultAuthor, type Post } from "./modules/post";
   import Icon from "@iconify/svelte";
   import dayjs from "dayjs";
+  import type { Post } from "./modules/post";
+  import { defaultAuthor } from "./modules/config";
 
   export let item: Post;
 
-  const authors = [DefaultAuthor];
+  const authors = [defaultAuthor];
 </script>
 
 <article>

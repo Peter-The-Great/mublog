@@ -1,1 +1,1 @@
-export const title: string = "Thoughts";
+export * from "../../../thoughts.config";
