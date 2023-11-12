@@ -1,0 +1,11 @@
+{
+  "title": "{title} — a blog by {author}",
+  "nav": {
+    "newest": "Newest post",
+    "timeline": "Timeline"
+  },
+  "post": {
+    "view_more": "View more",
+    "authored_by": "a thought by"
+  }
+}
