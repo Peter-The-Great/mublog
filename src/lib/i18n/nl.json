@@ -1,0 +1,10 @@
+{
+  "title": "{title} — een blog door {author}",
+  "nav": {
+    "newest": "Nieuwste bericht",
+    "timeline": "Tijdlijn"
+  },
+  "post": {
+    "view_more": "Meer bekijken"
+  }
+}

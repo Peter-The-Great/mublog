@@ -1,9 +1,11 @@
 <script lang="ts">
   import "../app.postcss";
-  import "$lib/i18n";
+  import { initI18n } from "$lib/modules/i18n";
   import { _ } from "svelte-i18n";
   import { defaultAuthor, title } from "$lib/modules/config";
   import Navbar from "$lib/Navbar.svelte";
+
+  initI18n();
 </script>
 
 <svelte:head>

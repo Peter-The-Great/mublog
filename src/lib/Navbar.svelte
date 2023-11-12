@@ -1,7 +1,7 @@
 <script lang="ts">
   import { _ } from "svelte-i18n";
   import Icon from "@iconify/svelte";
-  import { links } from "./modules/config";
+  import { links } from "$lib/modules/config";
 </script>
 
 <nav class="detail">

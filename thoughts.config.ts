@@ -1,4 +1,4 @@
-import type { Link } from "$lib/modules/links";
+import type { Display, Link } from "$lib/modules/config";
 import type { Author } from "$lib/modules/post";
 
 /* Blog title */
@@ -28,3 +28,8 @@ export const links: Link[] = [
     url: "https://keesvv.nl",
   },
 ];
+
+export const display: Display = {
+  en: { post: { authored_by: "a thought by" } },
+  nl: { post: { authored_by: "een gedachte door" } },
+};
