@@ -1,5 +1,6 @@
 export type Author = {
   name: string;
+  shortName?: string;
   url: string;
 };
 

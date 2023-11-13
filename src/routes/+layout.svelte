@@ -4,6 +4,9 @@
   import { _ } from "svelte-i18n";
   import { defaultAuthor, title } from "$lib/modules/config";
   import Navbar from "$lib/Navbar.svelte";
+  import type { LayoutData } from "./$types";
+
+  export let data: LayoutData;
 
   initI18n();
 </script>
@@ -18,7 +21,7 @@
     <a class="detail absolute -top-10 focus:top-0" tabindex={0} href="#main"
       >{$_("a11y.skip_link")}</a
     >
-    <Navbar />
+    <Navbar hasAbout={data.hasAbout} />
   </header>
   <div class="md:mt-8" id="main">
     <slot />

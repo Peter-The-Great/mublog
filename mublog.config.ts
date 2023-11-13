@@ -13,6 +13,7 @@ export const primaryLanguage: string = "en";
 /* The default author to use when publishing blogs */
 export const defaultAuthor: Author = {
   name: "John Smith",
+  shortName: "John",
   url: "https://example.com",
 };
 

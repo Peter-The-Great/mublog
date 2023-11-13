@@ -2,7 +2,8 @@
   "title": "{title} — een blog door {author}",
   "nav": {
     "newest": "Nieuwste bericht",
-    "timeline": "Tijdlijn"
+    "timeline": "Tijdlijn",
+    "about": "Over {author}"
   },
   "post": {
     "view_more": "Meer posts"

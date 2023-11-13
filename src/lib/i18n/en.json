@@ -2,7 +2,8 @@
   "title": "{title} — a blog by {author}",
   "nav": {
     "newest": "Newest post",
-    "timeline": "Timeline"
+    "timeline": "Timeline",
+    "about": "About {author}"
   },
   "post": {
     "view_more": "More posts"
