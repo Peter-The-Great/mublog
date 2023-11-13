@@ -1,10 +1,12 @@
-import { readFile } from "fs/promises";
-import { marked } from "marked";
+import { getAbout, hasAbout } from "$lib/server/about";
+import { error } from "@sveltejs/kit";
 
 export async function load() {
-  const about = await readFile("config/about.md", "utf-8");
+  if (!hasAbout()) {
+    throw error(404);
+  }
 
   return {
-    about: marked(about),
+    about: getAbout(),
   };
 }
