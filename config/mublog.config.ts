@@ -1,4 +1,4 @@
-import type { Display, Link } from "$lib/modules/config";
+import type { Link } from "$lib/modules/config";
 import type { Author } from "$lib/modules/post";
 
 /* Blog title */
@@ -25,8 +25,3 @@ export const links: Link[] = [
   //   url: "https://example.com",
   // },
 ];
-
-export const display: Display = {
-  en: { post: { authored_by: "authored by" } },
-  nl: { post: { authored_by: "geschreven door" } },
-};

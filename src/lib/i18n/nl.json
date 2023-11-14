@@ -6,7 +6,8 @@
     "about": "Over {author}"
   },
   "post": {
-    "view_more": "Meer posts"
+    "view_more": "Meer posts",
+    "authored_by": "geschreven door"
   },
   "placeholder": {
     "no_content": "Nog geen content beschikbaar",

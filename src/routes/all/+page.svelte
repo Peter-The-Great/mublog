@@ -1,10 +1,10 @@
 <script lang="ts">
   import PostPreview from "$lib/PostPreview.svelte";
   import Placeholder from "$lib/Placeholder.svelte";
-  import type { LayoutData } from "../$types";
+  import type { PageData } from "./$types";
 
-  export let data: LayoutData;
-  export const { postSummaries: summaries } = data;
+  export let data: PageData;
+  export const { summaries } = data;
 </script>
 
 {#if summaries.length}

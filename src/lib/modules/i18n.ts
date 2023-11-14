@@ -1,5 +1,4 @@
 import { init, addMessages, getLocaleFromNavigator } from "svelte-i18n";
-import { display } from "$lib/modules/config";
 
 import en from "../i18n/en.json";
 import nl from "../i18n/nl.json";
@@ -14,10 +13,6 @@ export function initI18n() {
 
   addMessages("en", en);
   addMessages("nl", nl);
-
-  for (const loc in display) {
-    addMessages(loc, display[loc]);
-  }
 
   init({ fallbackLocale: "en", initialLocale: locale });
 

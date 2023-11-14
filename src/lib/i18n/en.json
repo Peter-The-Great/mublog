@@ -6,7 +6,8 @@
     "about": "About {author}"
   },
   "post": {
-    "view_more": "More posts"
+    "view_more": "More posts",
+    "authored_by": "authored by"
   },
   "placeholder": {
     "no_content": "No content yet",
