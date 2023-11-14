@@ -16,7 +16,7 @@
   >
 </svelte:head>
 
-<main class="m-8 md:m-10">
+<main class="m-10 md:m-12 md:mx-24 xl:mx-52 2xl:mx-80">
   <header class="mb-6">
     <a class="detail absolute -top-10 focus:top-0" tabindex={0} href="#main"
       >{$_("a11y.skip_link")}</a
