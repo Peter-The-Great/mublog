@@ -19,10 +19,15 @@
     @apply font-semibold;
   }
 
+  div :global(p),
+  div :global(blockquote) {
+    @apply mb-4;
+  }
+
   div :global(h1),
   div :global(h2),
   div :global(h3) {
-    @apply mt-5;
+    @apply mt-5 mb-1;
   }
 
   div :global(h1),
@@ -35,7 +40,11 @@
   }
 
   div :global(blockquote) {
-    @apply border-l-2 px-4 py-2 my-2 detail italic;
+    @apply border-l-2 px-4 py-3 detail italic;
+  }
+
+  div :global(blockquote p) {
+    @apply m-auto;
   }
 
   div :global(ul) {
@@ -61,5 +70,9 @@
 
   div :global(pre) {
     @apply text-xs;
+  }
+
+  div :global(hr) {
+    @apply my-6;
   }
 </style>
