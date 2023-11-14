@@ -1,11 +1,15 @@
 <script lang="ts">
-  import sanitize from "sanitize-html";
+  import sanitize, { type IOptions } from "sanitize-html";
 
   export let content: string;
+
+  const sanitizeOptions: IOptions = {
+    allowedTags: sanitize.defaults.allowedTags.concat(["img"]),
+  };
 </script>
 
 <div>
-  {@html sanitize(content)}
+  {@html sanitize(content, sanitizeOptions)}
 </div>
 
 <style scoped lang="postcss">
