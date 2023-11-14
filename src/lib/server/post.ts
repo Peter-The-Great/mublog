@@ -7,6 +7,10 @@ import { join } from "path";
 import dayjs from "dayjs";
 import { existsSync } from "fs";
 
+export function parseDate(date: string | Date): Date {
+  return dayjs(date, "YYYY-MM-DD HH:MM").toDate();
+}
+
 export async function getSummaries(): Promise<PostSummary[]> {
   const files = await glob("posts/**/*.md");
 
@@ -19,7 +23,8 @@ export async function getSummaries(): Promise<PostSummary[]> {
         return {
           title: meta.title,
           subtitle: meta.subtitle,
-          published: dayjs(meta.published, "YYYY-MM-DD").toDate(),
+          cover: meta.cover,
+          published: parseDate(meta.published),
           slug: item.replace(/^posts\/(.*)\.md$/, "$1"),
         };
       })
@@ -39,9 +44,10 @@ export async function getPost(slug: string): Promise<Post | undefined> {
   return {
     slug,
     content: marked(content),
-    published: meta.published,
+    published: parseDate(meta.published),
     title: meta.title,
     subtitle: meta.subtitle,
+    cover: meta.cover,
   };
 }
 

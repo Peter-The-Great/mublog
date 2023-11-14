@@ -9,6 +9,7 @@ export type Post = {
   published: Date;
   title: string;
   subtitle?: string;
+  cover?: string;
   content: string;
 };
 

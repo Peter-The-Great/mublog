@@ -1,7 +1,7 @@
 <script lang="ts">
   import Post from "$lib/Post.svelte";
   import type { PageData } from "./$types";
-  import { defaultAuthor } from "$lib/modules/config";
+  import { defaultAuthor, primaryLanguage } from "$lib/modules/config";
   import Placeholder from "$lib/Placeholder.svelte";
   import { _ } from "svelte-i18n";
 
@@ -10,9 +10,18 @@
 </script>
 
 <svelte:head>
-  {#if post}
-    <title>{post.title} &mdash; {defaultAuthor.name}</title>
-  {/if}
+  <title>{post.title} &mdash; {defaultAuthor.name}</title>
+  <meta name="description" content={post.subtitle} />
+  <meta property="og:description" content={post.subtitle} />
+  <meta property="og:title" content={post.title} />
+  <meta property="og:locale" content={primaryLanguage} />
+  <meta property="og:image" content={post.cover} />
+  <meta property="og:type" content="article" />
+  <meta property="article:author" content={defaultAuthor.url} />
+  <meta
+    property="article:published_time"
+    content={post.published.toISOString()}
+  />
 </svelte:head>
 
 {#if post}

@@ -1,9 +1,11 @@
 <script lang="ts">
+  import sanitize from "sanitize-html";
+
   export let content: string;
 </script>
 
 <div>
-  {@html content}
+  {@html sanitize(content)}
 </div>
 
 <style scoped lang="postcss">
