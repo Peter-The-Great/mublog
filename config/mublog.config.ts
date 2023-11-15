@@ -25,3 +25,6 @@ export const links: Link[] = [
   //   url: "https://example.com",
   // },
 ];
+
+/* Whether to show the 'powered by'-footer */
+export const showPoweredBy: boolean = true;
