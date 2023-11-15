@@ -1,15 +1,23 @@
 <script lang="ts">
   import "../app.postcss";
-  import { initI18n } from "$lib/modules/i18n";
-  import { _ } from "svelte-i18n";
+  import { initI18n, locale, locales } from "$lib/modules/i18n";
+  import { _, getLocaleFromNavigator } from "svelte-i18n";
   import { defaultAuthor, showPoweredBy, title } from "$lib/modules/config";
   import Navbar from "$lib/Navbar.svelte";
   import type { LayoutData } from "./$types";
   import Icon from "@iconify/svelte";
+  import { onMount } from "svelte";
 
   export let data: LayoutData;
 
   initI18n();
+
+  onMount(() => {
+    const navigatorLocale = getLocaleFromNavigator();
+    if (navigatorLocale) {
+      locale.set(locales[navigatorLocale]);
+    }
+  });
 </script>
 
 <svelte:head>

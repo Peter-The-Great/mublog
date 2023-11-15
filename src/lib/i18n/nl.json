@@ -7,7 +7,8 @@
   },
   "post": {
     "view_more": "Meer posts",
-    "authored_by": "geschreven door"
+    "authored_by": "geschreven door",
+    "lang_mismatch": "Dit artikel is geschreven in het {language}."
   },
   "placeholder": {
     "no_content": "Nog geen content beschikbaar",
@@ -15,5 +16,9 @@
   },
   "a11y": {
     "skip_link": "Navigeer naar hoofdinhoud"
+  },
+  "locale": {
+    "en": "Engels",
+    "nl": "Nederlands"
   }
 }

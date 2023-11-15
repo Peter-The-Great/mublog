@@ -1,4 +1,5 @@
 import type { PostMeta, Post, PostSummary } from "$lib/modules/post";
+import { primaryLanguage } from "$lib/modules/config";
 import { marked } from "marked";
 import frontMatter from "front-matter";
 import { readFile } from "fs/promises";
@@ -21,9 +22,8 @@ export async function getSummaries(): Promise<PostSummary[]> {
         const { attributes: meta } = frontMatter<PostMeta>(entry);
 
         return {
-          title: meta.title,
-          subtitle: meta.subtitle,
-          cover: meta.cover,
+          ...meta,
+          language: meta.language ?? primaryLanguage,
           published: parseDate(meta.published),
           slug: item.replace(/^posts\/(.*)\.md$/, "$1"),
         };
@@ -42,12 +42,11 @@ export async function getPost(slug: string): Promise<Post | undefined> {
   const { attributes: meta, body: content } = frontMatter<PostMeta>(entry);
 
   return {
+    ...meta,
+    language: meta.language ?? primaryLanguage,
     slug,
     content: marked(content),
     published: parseDate(meta.published),
-    title: meta.title,
-    subtitle: meta.subtitle,
-    cover: meta.cover,
   };
 }
 

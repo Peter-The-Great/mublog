@@ -5,6 +5,7 @@
   import type { Post } from "./modules/post";
   import { defaultAuthor } from "./modules/config";
   import UserContent from "./UserContent.svelte";
+  import { hasLangMismatch, locale, locales } from "./modules/i18n";
 
   export let post: Post;
 
@@ -24,6 +25,18 @@
       {/each}
       <span>{dayjs(post.published).fromNow()}</span>
     </h3>
+    {#if hasLangMismatch($locale, post)}
+      <div class="mt-4 inline-block notice text-sm">
+        <span aria-hidden="true">
+          {locales[post.language].flag}
+        </span>
+        <span
+          >{$_("post.lang_mismatch", {
+            values: { language: $_(`locale.${post.language}`) },
+          })}</span
+        >
+      </div>
+    {/if}
   </div>
   <div class="font-light max-w-3xl">
     <UserContent content={post.content} />

@@ -10,6 +10,7 @@ export type Post = {
   title: string;
   subtitle?: string;
   cover?: string;
+  language: string;
   content: string;
 };
 

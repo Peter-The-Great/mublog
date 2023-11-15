@@ -7,7 +7,8 @@
   },
   "post": {
     "view_more": "More posts",
-    "authored_by": "authored by"
+    "authored_by": "authored by",
+    "lang_mismatch": "This article is written in {language}."
   },
   "placeholder": {
     "no_content": "No content yet",
@@ -15,5 +16,9 @@
   },
   "a11y": {
     "skip_link": "Skip to main content"
+  },
+  "locale": {
+    "en": "English",
+    "nl": "Dutch"
   }
 }
