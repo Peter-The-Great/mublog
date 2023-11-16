@@ -37,7 +37,7 @@ export function hasLangMismatch(
   locale: Locale | undefined,
   post: PostMeta
 ): boolean {
-  return post.language !== locale?.code;
+  return !!locale && post.language !== locale.code;
 }
 
 export function initI18n() {
