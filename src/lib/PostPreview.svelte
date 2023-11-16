@@ -18,11 +18,11 @@
         >{locales[summary.language].flag}</span
       >
     {/if}
-    <h1 class="inline">{summary.title}</h1>
+    <span>{summary.title}</span>
     {#if summary.subtitle}
       <div class="inline detail">
         <span>&mdash;</span>
-        <h2 class="inline">{summary.subtitle}</h2>
+        <span>{summary.subtitle}</span>
       </div>
     {/if}
   </div>
