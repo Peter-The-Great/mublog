@@ -10,6 +10,9 @@
   export let post: Post;
 
   const authors = [defaultAuthor];
+
+  let published: string;
+  $: (published = dayjs(post.published).fromNow()), $locale;
 </script>
 
 <article>
@@ -23,7 +26,7 @@
       {#each authors as author}
         <a href={author.url} class="link-emphasis">{author.name}</a>
       {/each}
-      <span>{dayjs(post.published).fromNow()}</span>
+      <span>{published}</span>
     </h3>
     {#if hasLangMismatch($locale, post)}
       <div class="mt-4 inline-block notice text-sm">

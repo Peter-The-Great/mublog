@@ -1,5 +1,6 @@
 import { init, addMessages, locale as i18nLocale } from "svelte-i18n";
 import { writable } from "svelte/store";
+import { browser } from "$app/environment";
 
 import en from "../i18n/en.json";
 import nl from "../i18n/nl.json";
@@ -37,10 +38,13 @@ export function hasLangMismatch(
   locale: Locale | undefined,
   post: PostMeta
 ): boolean {
-  return !!locale && post.language !== locale.code;
+  return browser && !!locale && post.language !== locale.code;
 }
 
 export function initI18n() {
+  dayjs.extend(relTime);
+  dayjs.extend(localizedFormat);
+
   for (const locale in locales) {
     addMessages(locale, locales[locale].messages);
   }
@@ -49,12 +53,10 @@ export function initI18n() {
     if (!l) {
       return;
     }
+
     i18nLocale.set(l.code);
+    dayjs.locale(l.code);
   });
 
   init({ fallbackLocale: "en", initialLocale: "en" });
-
-  dayjs.extend(relTime);
-  dayjs.extend(localizedFormat);
-  dayjs.locale(locales.en.code);
 }

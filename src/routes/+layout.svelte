@@ -14,8 +14,9 @@
 
   onMount(() => {
     const navigatorLocale = getLocaleFromNavigator();
+
     if (navigatorLocale) {
-      locale.set(locales[navigatorLocale]);
+      locale.set(locales[navigatorLocale.split("-")[0]]);
     }
   });
 </script>

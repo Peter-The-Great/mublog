@@ -5,10 +5,13 @@
   import { _ } from "svelte-i18n";
 
   export let summary: PostSummary;
+
+  let published: string;
+  $: (published = dayjs(summary.published).format("ll")), $locale;
 </script>
 
 <div class="flex items-center gap-8">
-  <span class="detail">{dayjs(summary.published).format("ll")}</span>
+  <span class="detail">{published}</span>
   <div>
     {#if hasLangMismatch($locale, summary)}
       <span
