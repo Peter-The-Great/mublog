@@ -78,6 +78,11 @@
     @apply text-xs;
   }
 
+  div :global(hr),
+  div :global(blockquote) {
+    @apply border-gray-300 dark:border-gray-600;
+  }
+
   div :global(hr) {
     @apply my-6;
   }
